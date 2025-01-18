@@ -1,8 +1,6 @@
 # LD score regression (LDSC) analysis pipeline
 
 ## Install
-
-### Install LDSC
 ```bash
 # clone repository
 git clone --recursive https://github.com/KangchengHou/ldsc-pipeline.git
@@ -15,7 +13,7 @@ conda env update --file environment.yml --name ldsc --prune
 source activate ldsc
 ```
 
-## Format annotation file (runtime = ~10 mins)
+## Step 1: format annotation file (runtime = ~10 mins)
 `LDSC-DATA/example/test.hg19.bed` contains an example of a custom `.bed` file. The annotation needs to be in hg19 coordinates.
 
 ```bash
@@ -27,7 +25,7 @@ for chrom in {1..22}; do
 done
 ```
 
-## Calculate LD scores for custom `.bed` files (runtime = ~10 mins for single chromosome, ~100 mins for all chromosomes)
+## Step 2: calculate LD scores for custom `.bed` files (runtime = ~6 mins for single chromosome, ~60 mins for all chromosomes)
 
 ```bash
 for chrom in {1..22}; do
@@ -42,8 +40,7 @@ for chrom in {1..22}; do
 done
 ```
 
-
-## Run LD score regression with LD scores (runtime = ~5 mins)
+## Step 3: run LD score regression with LD scores (runtime = ~5 mins)
 ```bash
 trait="UKB_460K.disease_AID_ALL"
 baseline="LDSC-DATA/baseline_v1.2/baseline."
