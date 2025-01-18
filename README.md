@@ -14,7 +14,9 @@ source activate ldsc
 ```
 
 ## Step 1: format annotation file (runtime = ~10 mins)
-`LDSC-DATA/example/test.hg19.bed` contains an example of a custom `.bed` file. The annotation needs to be in hg19 coordinates.
+`LDSC-DATA/example/test.hg19.bed` is an example of a user-defined `.bed` file containing the genomic annotation. The annotation needs to be in hg19 coordinates.
+
+To use your own annotation file, just replace the `LDSC-DATA/example/test.hg19.bed` with your own `.bed` file.
 
 ```bash
 for chrom in {1..22}; do
@@ -25,7 +27,7 @@ for chrom in {1..22}; do
 done
 ```
 
-## Step 2: calculate LD scores for custom `.bed` files (runtime = ~6 mins for single chromosome, ~60 mins for all chromosomes)
+## Step 2: calculate LD scores (runtime = ~6 mins for single chromosome, ~60 mins for all chromosomes)
 
 ```bash
 for chrom in {1..22}; do
@@ -40,7 +42,7 @@ for chrom in {1..22}; do
 done
 ```
 
-## Step 3: run LD score regression with LD scores (runtime = ~5 mins)
+## Step 3: run LD score regression (runtime = ~5 mins)
 ```bash
 trait="UKB_460K.disease_AID_ALL"
 baseline="LDSC-DATA/baseline_v1.2/baseline."
